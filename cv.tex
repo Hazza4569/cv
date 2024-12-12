@@ -43,12 +43,12 @@
    %TOP PANEL (TITLE)
   \begin{minipage}[t]{0.7\textwidth}
     {\fontfamily{phv}\fontseries{ubuc}\fontsize{22}{25}\selectfont%
-      HARRY COOKE 
+      HARRY COOKE
       \fontfamily{phv}\fontseries{sluc}\fontsize{18}{20}\selectfont\color{hl}
-      \hspace{1pt}PhD*
+      \hspace{1pt}PhD
     }\\[.2em]
     {\fontfamily{phv}\fontseries{sluc}\fontsize{12}{14}\selectfont\color{hl}%
-      Software development\sep Data analysis
+      Software engineer\sep Data scientist\sep Particle physicist
     }
   \end{minipage}\vspace{-.2em}%
   \begin{minipage}[t]{0.3\textwidth}
@@ -67,14 +67,35 @@
 \vspace{0.5em}
 
 \begin{minipage}[t]{0.64\textwidth}
-  % LEFT COLUMN 
-  \newcommand\intersectionspacing{1.3em}
-  \newcommand\intersegmentspacing{-.3em}
+  % LEFT COLUMN
+  \newcommand\intersectionspacing{0.8em}
+  \newcommand\intersegmentspacing{-.5em}
+  % ==== EXPERIENCE ======
+  {\hone Experience} \vspace{0.25em} \hrule \vspace{0.5em}
+
+  {\institute Acturis} \dash
+  { \qualification Technical Business Analyst}\\
+  {\stdate {\dateword MAY} 2024 - \dateword{PRESENT}}\\
+  {\info Working with clients to build and maintain insurance products}\\[\intersegmentspacing]
+
+  {\institute University of Birmingham} \dash
+  { \qualification Postgraduate Teaching Assistant}\\
+  {\stdate {\dateword OCTOBER} 2019 - \dateword{MARCH} 2023}\\
+  {\info Teaching in undergraduate computing and physics labs during PhD}\\[\intersegmentspacing]
+
+%  {\institute CERN} \dash
+%  { \qualification Summer Studentship}\\
+%  {\stdate {\dateword JUNE - AUGUST} 2018}\\
+%  {\info Developing a monitoring system for AMC13 modules in the CMS detector}\\
+%  {\info \url{http://cdlib.cern.ch/record/2640969}}\\[\intersegmentspacing]
+%
+  \vspace{\intersectionspacing}
+
   % ===== EDUCATION =====
-  {\hone Education} \vspace{0.5em} \hrule \vspace{0.5em} 
+  {\hone Education} \vspace{0.5em} \hrule \vspace{0.5em}
 
   {\institute University of Birmingham}\\
-  {\stdate 2019 - 2023} \dash 
+  {\stdate 2019 - 2023} \dash
   { \qualification PhD Particle Physics}\\
   {\info%
     Searching for rare Standard Model interactions with the
@@ -82,12 +103,9 @@
   }\\
   {\info%
     Statistical analysis, machine learning, programming in \cpp and Python
-  }\\
-  {\itinfo%
-    *completed PhD programme, graduating summer 2024
   }\\[\intersegmentspacing]
 
-  {\institute University of Birmingham}\\ 
+  {\institute University of Birmingham}\\
   {\stdate 2015 - 2019} \dash
   { \qualification%
     MSci Physics with Particle Physics and Cosmology \\
@@ -107,30 +125,8 @@
 
   \vspace{\intersectionspacing}
 
-  % ==== EXPERIENCE ======
-  {\hone Experience} \vspace{0.5em} \hrule \vspace{0.5em} 
-
-  {\institute University of Birmingham} \dash
-  { \qualification Postgraduate Teaching Assistant}\\
-  {\stdate {\dateword OCTOBER} 2019 - \dateword{MARCH} 2023}\\
-  {\info Teaching in undergraduate computing and physics
-  labs}\\[\intersegmentspacing]
-
-  {\institute CERN} \dash
-  { \qualification Summer Studentship}\\
-  {\stdate {\dateword JUNE - AUGUST} 2018}\\
-  {\info Developing a monitoring system for AMC13 modules in the CMS detector}\\
-  {\info \url{http://cdlib.cern.ch/record/2640969}}\\[\intersegmentspacing]
-
-  {\institute University of Birmingham} \dash
-  { \qualification Maple TA Internship}\\
-  {\stdate {\dateword JULY - AUGUST} 2017, {\dateword DECEMBER} 2017}\\
-  {\info Authoring and testing maths questions for university science faculties}
-
-  \vspace{\intersectionspacing}
-
   % ==== TECHNICAL SKILLS ======
-  {\hone Technical Skills} \vspace{0.5em} \hrule \vspace{0.5em} 
+  {\hone Technical Skills} \vspace{0.5em} \hrule \vspace{0.5em}
 
   % > PROGRAMMING
   {\skill Software development}\\
@@ -143,23 +139,24 @@
   }\\
   {\boldplanguage Python}\dash
   {\desc%
-    Regular use for scripting and data visualisation, used for larger personal
-    projects, taught to Y3 undergraduate students. 7 years of experience.
+    Developed internal tools to automate common processes at Acturis.
+    Used for scripting and data visualisation in PhD and for larger personal
+    projects. Taught to Y3 undergraduate students. 7 years of experience.
   }\\
   {\boldplanguage JavaScript {\dateword (HTML, CSS)}}\dash
   {\desc%
     Built monitoring and visualisation tools for use with detector hardware.
     Some small personal web projects. 6 years of experience.
   }\\
-  {\boldplanguage Visual Basic}\dash
+  {\boldplanguage SQL}\dash
   {\desc%
-    Used during A-level computing, developed a simulation of Conway's Game of
-    Life. 2 years experience.
+    Used extensively in role at Acturis to maintain databases for client
+    information and product configuration. 6 months of experience.
   }\\
   % > Additional languages
   {\info Some experience with many more languages, including}\\
   {\planguage%
-    Bash, Ruby, Java, Go, Rust, Kotlin, SQL, Matlab, Maple, Julia
+    Bash, Ruby, Java, Go, Rust, Kotlin, Matlab, Maple, Julia, XSLT, XPath
   }\\[\intersegmentspacing]
 
   % > DATA ANALYSIS
@@ -177,11 +174,21 @@
     and in a postgraduate course.
   }\\[\intersegmentspacing]
 
+  % > QUALITY ASSURANCE
+  {\skill Quality assurance}\\
+  {\info Always ensure the highest build quality through extensive testing:}\\
+  {\desc%
+    For each change built at Acturis, write detailed test packs ensuring new
+    and existing functionality works as expected. Either conduct testing
+    personally or coordinate with internal teams to ensure 100\% pass rate on
+    all tests. Built and shared tools to automate common testing processes.
+  }\\[\intersegmentspacing]
+
   % > Misc
   {\skill Miscellaneous}\\
   {\desc Experienced with \hl{version-control software}, see a selection of projects on my
     \href{https://github.com/Hazza4569}{\color{hl}\underline{GitHub page}}.
-    Adept in operation of \hl{unix-based systems}, for both work and personal use.
+    Adept in operation of \hl{unix-based systems} and \hl{Windows}, for both work and personal use.
     Proficient in writing and typesetting of documents, particularly with
     {\LaTeX} -- created the official University of Birmingham
     \href{https://www.overleaf.com/edu/bham#templates}
@@ -200,55 +207,58 @@
 
   %RIGHT COLUMN
   % ===== Transferable skills =====
-  {\hone Transferable Skills} \vspace{0.5em} \hrule \vspace{0.5em} 
+  {\hone Transferable Skills} \vspace{0.5em} \hrule \vspace{0.5em}
   {\skill Project management}\\
   {\desc
     Independently planned and performed a 2.5-year-long physics analysis.
     Involved long-term planning and prioritisation of tasks to ensure that the analysis
     was completed within the timeline of the PhD.
   }\\[\interskillspacing]
+  {\skill Client Relations}\\
+  {\desc
+    Worked directly with multiple clients in role at Acturis to ensure builds
+    are delivered to requirements and defects are investigated and resolved
+    promptly. Product owner for one client, acting as first point of contact
+    for issues or requests.
+  }\\[\interskillspacing]
   {\skill Teamwork and communication}\\
   {\desc
-    Collaborated on many projects with colleagues at the University of
-    Birmingham and internationally. Worked on an analysis with a team of
-    $\sim$10 physicists to attain a world-leading result, meeting weekly to
-    share updates with the team and distribute tasks. During a 1-year placement
-    at CERN during the PhD, joined the L1Calo operations team and took week-long
-    24/7 on-call shifts to solve problems during data-taking runs.
+    Collaborated on many projects with colleagues within the University
+    and internationally. Worked on an analysis with a team of
+    $\sim$10 physicists to attain a world-leading result.
+    In the L1Calo operations team, took week-long 24/7 on-call shifts to
+    ensure continuous running of the ATLAS experiment.
+    Communicate frequently with internal teams at Acturis to delegate
+    tasks and ensure that projects are delivered on time and to high quality.
   }\\[\interskillspacing]
   {\skill Time management}\\
   {\desc
-    Worked on many simultaneous projects during the PhD and learned to
+    Worked on multiple concurrent projects during the PhD and learned to
     effectively split time between tasks, whilst also scheduling individual work
-    time around meetings and other commitments.
+    time around meetings and other commitments. Have applied this experience to
+    manage many simultaneous projects at Acturis.
   }\\[\interskillspacing]
   {\skill Leadership}\\
   {\desc
-    During undergraduate studies, led a group of 14 students for a 3-month
-    project, producing a 90-page document on the design of high-energy particle detectors.
-    Leadership responsibilities included dividing and delegating tasks amongst
-    small teams, setting deadlines, and organising and chairing regular
-    meetings.
-    Also took on leading roles in organising events such as a group Christmas
-    dinner in Birmingham and a BBQ to welcome new arrivals to placement at CERN.
+    As an undergraduate, led 14 students for a 3-month project, producing a
+    90-page document on design of high-energy particle detectors.
+    Responsibilities included dividing and delegating tasks amongst small teams,
+    setting deadlines, and organising and chairing regular meetings.
   }\\[\interskillspacing]
   {\skill Problem solving} \\
   {\desc
-    As a physicist, problem solving is an essential skill, used in deriving
-    solutions to mathematical problems, in implementing code to analyse very large
-    datasets or simulate systems, and in optimising an analysis to best extract
-    a result from data.
+    Demonstrated through research in deriving solutions to mathematical problems, implementing
+    code to analyse very large datasets or simulate systems, and optimising
+    an analysis to best extract a result from data.
   }\\
   \vspace{0.5em}
 
   % ==== PERSONAL INTERESTS ======
-  {\hone Personal Interests} \vspace{0.5em} \hrule \vspace{0.5em} 
+  {\hone Personal Interests} \vspace{0.5em} \hrule \vspace{0.5em}
   {\desc%
-    Founded the University of Birmingham Benchball Society and served as
-    president and then treasurer over the first 2 years. 
-    Played tennis from the age of 11 and earned a Level-2 coaching qualification;
-    spent 3 years coaching weekly sessions at local club. Enjoy
-    working with computers, having built a custom PC for work, gaming, and more.
+    Enjoy playing tennis and 5-a-side football.  Founder and first president of
+    the University of Birmingham Benchball Society.  Enjoy working with
+    computers, having built a custom PC for work, gaming, and more.
   }
 
 \end{minipage}

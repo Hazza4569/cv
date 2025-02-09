@@ -2,268 +2,388 @@
 \usepackage[utf8]{inputenc}
 \usepackage[margin=.9cm,tmargin=1.2cm]{geometry}
 \usepackage[none]{hyphenat}
-\usepackage{lipsum,xcolor,relsize,xspace,hyperref}
+\usepackage[hidelinks]{hyperref}
+\usepackage{lipsum,xcolor,relsize,xspace,enumitem,graphicx,fancyhdr,ulem}
 
+\setlist[itemize]{noitemsep,topsep=0pt,leftmargin=15pt}
+\setlist[itemize,2]{leftmargin=10pt}
 \setlength{\parindent}{0pt}
+%\setul{0pt}{1pt}% 5pt below contents
+\setlength{\ULdepth}{1.8pt}
 
 %\colorlet{hl}{black!70}
 \definecolor{hl}{HTML}{800020}
-
-\newcommand\hone{\fontfamily{phv}\fontseries{sluc}\fontsize{14}{16}\selectfont }
-\newcommand\institute{\fontfamily{phv}\fontseries{bx}\fontsize{11}{14}\selectfont }
-\newcommand\qualification{\fontfamily{phv}\fontseries{m}\fontshape{sl}\fontsize{10}{11}\selectfont }
-\newcommand\stdate{\fontfamily{phv}\fontseries{m}\fontshape{sc}\fontsize{10}{11}\selectfont }
-\newcommand\grade{\fontfamily{phv}\fontseries{sluc}\fontsize{10}{11}\selectfont\color{hl} }
-\newcommand\info{\fontfamily{phv}\fontseries{sluc}\fontsize{10}{11}\selectfont\color{hl} }
-\newcommand\boldinfo{\fontfamily{phv}\fontseries{b}\fontsize{10}{11}\selectfont\color{hl} }
-\newcommand\itinfo{\fontfamily{phv}\itshape\fontsize{10}{11}\selectfont\color{hl} }
+\definecolor{bg1}{HTML}{FFFFFF}
+\definecolor{bg2}{HTML}{FFEBF0}
+\newcommand\bodysize{\fontsize{11}{13}}
+\newcommand\htwosize{\fontsize{12}{15}}
+\newcommand\link[2]{{\color{hl}\uline{\href{#1}{#2}}}}
 
 \newcommand\dash{ {\large\bf --} }
-\newcommand\dateword{\hspace{1px}\fontfamily{phv}\fontseries{m}\fontshape{n}\fontsize{9}{10}\selectfont}
-\newcommand\cpp{{C\nolinebreak[4]\hspace{-.15em}\raisebox{.4ex}{\relsize{-3}\bf +\hspace{-.15em}+}}\xspace}
-
-\newcommand\skill\institute
-\newcommand\planguage\desc%\stdate
-\newcommand\boldplanguage{\fontfamily{phv}\fontseries{b}\fontsize{10}{11}\selectfont }
-\newcommand\desc{\fontfamily{phv}\fontseries{sluc}\fontsize{10}{11}\selectfont }
-\newcommand\module\planguage%{\fontfamily{phv}\fontseries{m}\fontshape{sl}\fontsize{10}{11}\selectfont }
-\newcommand\referee{\fontfamily{phv}\fontseries{bx}\fontsize{10}{11}\selectfont }
-\newcommand\sep{\,{\color{black}\bf\textbar}\,}
-\newcommand\referenceonrequest{%
-  \hrule\vspace{.7em}
-  {\qualification References available on request.}
+\newcommand\cpp{{C\nolinebreak[4]\hspace{-.05em}\raisebox{.45ex}{\relsize{-3}\bf+\hspace{-.08em}+}}\xspace}
+\newcommand\sep{{\color{black}\textbar}\,}
+\newcommand\septwo{{\color{black}/}\,}
+\newcommand\hlseptwo{{\color{hl}/}\,}
+\newcommand\fromtodate[4]{%
+  {\fontfamily{phv}\fontseries{m}\fontshape{n}\bodysize\selectfont#1#2\dash#3#4}\xspace%
 }
-\newcommand\hl[1]{{\color{hl}#1}}
+
+\newcommand\intersectionspacing{0.3em}
+\newcommand\intersegmentspacing{1em}
+
+\newcommand\sidetitle[2][0em]{%
+  \fontfamily{phv}\fontseries{b}\fontsize{12}{13}\selectfont\color{hl}
+  \hspace{.1em}
+  \rotatebox[origin=c]{90}{\hspace{#1}#2}
+}
+\newcommand\experienceentry[4]{%
+  \fontfamily{phv}%
+    \fontseries{b}\htwosize\selectfont{\color{hl}#1}%
+    \hfill#3\\[.1em]%
+    \fontseries{m}\fontshape{sl}\bodysize\selectfont#2\\[-0.9em]%
+    \fontseries{m}\fontshape{n}\bodysize\selectfont%
+    #4
+    \par%
+}
+
+\newcommand\lefttitleblockvpad{\vspace{.3em}}
+\newcommand\lefttitleblock[3]{%
+  \colorbox{#1}{%
+    \begin{minipage}[c]{.04\textwidth}
+      \lefttitleblockvpad
+      \sidetitle{#2}
+      \lefttitleblockvpad
+    \end{minipage}{\color{hl}\vrule width 1pt}%
+    \begin{minipage}[c]{.005\textwidth}\hfill\end{minipage}
+    \begin{minipage}[c]{.94\textwidth}
+      \lefttitleblockvpad
+      #3
+      \lefttitleblockvpad
+    \end{minipage}%
+  }
+}
+\newcommand\thesislink[1]{https://raw.githubusercontent.com/Hazza4569/thesis/refs/heads/master/thesis.pdf\#page=#1}
+\newcommand\seethesis[3][Chapter]{(see \link{\thesislink{#3}}{thesis}, #1 #2)}
+
+\newcommand\cvtitle{HARRY COOKE\xspace}
+\newcommand\cvsubtitle{
+  Software engineer \hlseptwo Data scientist \hlseptwo Particle physicist
+\xspace}
+\fancypagestyle{pageone}
+{
+  \fancyhf{}
+  \fancyfoot[R]{\vspace{-3.3em}\fontfamily{phv}\fontshape{sl}\fontsize{9}{11}\selectfont Page \thepage}
+  \renewcommand{\headrulewidth}{0pt} % removes horizontal header line
+}
+\fancypagestyle{pageother}
+{
+  \fancyhf{}
+  \fancyhead[L]{
+    \vspace{2.5em}\fontfamily{phv}\fontseries{b}\fontshape{n}\fontsize{14}{16}\selectfont\color{hl}
+    \hspace*{.1em}\cvtitle
+  }
+  \fancyhead[R]{
+    \vspace{2.5em}\fontfamily{phv}\fontseries{n}\fontsize{11}{14}\selectfont%\color{hl}
+    \cvsubtitle
+  }
+  \fancyfoot[R]{\vspace{-3.3em}\fontfamily{phv}\fontshape{sl}\fontsize{9}{11}\selectfont Page \thepage}
+  \renewcommand{\headrulewidth}{0pt} % removes horizontal header line
+}
 
 \begin{document}
-\thispagestyle{empty}
+\pagestyle{pageother}
+\thispagestyle{pageone}
 
 \begin{minipage}{\textwidth}
-
    %TOP PANEL (TITLE)
-  \begin{minipage}[t]{0.7\textwidth}
-    {\fontfamily{phv}\fontseries{ubuc}\fontsize{22}{25}\selectfont%
-      HARRY COOKE
-      \fontfamily{phv}\fontseries{sluc}\fontsize{18}{20}\selectfont\color{hl}
-      \hspace{1pt}PhD
-    }\\[.2em]
-    {\fontfamily{phv}\fontseries{sluc}\fontsize{12}{14}\selectfont\color{hl}%
-      Software engineer\sep Data scientist\sep Particle physicist
+  \begin{minipage}[b]{0.7\textwidth}
+    {\fontfamily{phv}\fontseries{b}\fontsize{28}{25}\selectfont\color{hl}%
+      \cvtitle 
+    }{\fontfamily{phv}\fontseries{n}\fontsize{19}{20}\selectfont%\color{hl}
+      \hspace{5pt}PhD
+    }\\[.4em]
+    {\fontfamily{phv}\fontseries{n}\htwosize\selectfont%\color{hl}%
+      \cvsubtitle
     }
-  \end{minipage}\vspace{-.2em}%
-  \begin{minipage}[t]{0.3\textwidth}
-    \vspace{-1.65em}
-    \raggedleft\info
-      \vspace{-.3em}
+  \end{minipage}%\vspace{-.2em}%
+  \begin{minipage}[b]{0.3\textwidth}
+    %\vspace{-1.65em}
+    \raggedleft\fontfamily{phv}\fontseries{sluc}\bodysize\selectfont%\color{hl}
+      %\vspace{-.3em}
       hcooke006@aol.com \\[0.1em]
       +44 7528 694569 \\[0.1em]
       \href{https://github.com/Hazza4569}{github.com/Hazza4569}
   \end{minipage}
-
 \end{minipage}
 
 \vspace{0.5em}
-%\hrule
-\vspace{0.5em}
 
-\begin{minipage}[t]{0.64\textwidth}
-  % LEFT COLUMN
-  \newcommand\intersectionspacing{0.8em}
-  \newcommand\intersegmentspacing{-.5em}
-  % ==== EXPERIENCE ======
-  {\hone Experience} \vspace{0.25em} \hrule \vspace{0.5em}
+% SUMMARY
+\lefttitleblock{bg2}{SUMMARY}{%
+  \fontfamily{phv}%
+    \fontseries{m}\fontshape{n}\bodysize\selectfont%
+    % What I like
+    Enthusiastic about designing, building, and improving software that changes
+    the way people work. 
+    % What I've done/achieved
+    Attained a PhD in particle physics by developing software to
+    manipulate and analyse large data sets
+    and to simulate physical systems to advise on detector design.
+    Currently applying this experience to design software solutions for clients in
+    the insurance industry as a Technical Business Analyst.
+    % What I'm looking to build on moving forward
+    Looking to learn and grow in a role utilising existing software and research
+    expertise whilst further expanding this skill set.
+}\\[\intersectionspacing]
 
-  {\institute Acturis} \dash
-  { \qualification Technical Business Analyst}\\
-  {\stdate {\dateword MAY} 2024 - \dateword{PRESENT}}\\
-  {\info Working with clients to build and maintain e-trade insurance products}\\[\intersegmentspacing]
+% EXPERIENCE
+\lefttitleblock{bg1}{EXPERIENCE}{%
+  \experienceentry{Technical Business Analyst}{Acturis, Birmingham}
+    {\fromtodate{May }{2024}{Present}{}}{
+      \begin{itemize}
+        \item Working within a team to build and maintain e-trade insurance
+          products for insurers and MGAs
+        \begin{itemize}
+          \item Convert complex build requirements into technical specifications
+          \item Leverage continuous integration, unit testing, and acceptance
+            testing to deliver builds accurately and efficiently
+        \end{itemize}
+        \item Dedicated product owner for a key client
+          \begin{itemize}
+            \item Primary point of contact for queries, defects, and product
+              maintenance
+            \item Scope, estimate costs, and set timelines for new feature
+              requests
+          \end{itemize}
+        \item Built a suite of Python tools to automate common processes e.g.
+          manipulating XML messages or component testing via internal
+          webservices
+      \end{itemize}%
+    }\vspace{\intersegmentspacing}%
+    \experienceentry{Postgraduate Researcher}{University of Birmingham,
+    Birmingham \& CERN, Geneva}
+    {\fromtodate{}{2019}{}{2024}}{
+      \begin{itemize}
+        \item Produced 2 cutting-edge physics analyses within the ATLAS
+          collaboration, one in a team and one independently
+        \begin{itemize}
+          \item Developed bespoke software in \cpp and Python to process and
+            analyse high-volume physics data
+          \item Leveraged machine-learning discriminants and complex likelihood
+            models produce statistically significant results
+        \end{itemize}
+        \item Worked on software and hardware upgrades to the ATLAS detector trigger system
+          \begin{itemize}
+            \item Designed and simulated new trigger algorithms in \cpp
+            \item Assisted with installation of new trigger hardware
+          \end{itemize}
+        \item Taught Python to 3rd-year undergraduate students in computing labs
+          for 3 years
+      \end{itemize}%
+    }%
+}\\[\intersectionspacing]
 
-  {\institute University of Birmingham} \dash
-  { \qualification Postgraduate Teaching Assistant}\\
-  {\stdate {\dateword OCTOBER} 2019 - \dateword{MARCH} 2023}\\
-  {\info Teaching in undergraduate computing and physics labs during PhD}\\[\intersegmentspacing]
+% EDUCATION
+\lefttitleblock{bg2}{EDUCATION}{%
+  \experienceentry{PhD Particle Physics}{University of Birmingham}
+    {\fromtodate{}{2019}{}{2024}}{
+      \begin{itemize}
+        \item Thesis on electroweak multiboson interactions with Z bosons, photons, and
+          jets with the ATLAS experiment at the Large Hadron Collider
+      \end{itemize}
+    }\vspace{\intersegmentspacing}%
+  \experienceentry{MSci Physics with Particle Physics and Cosmology}
+    {Class I Cum Laude, University of Birmingham}
+    {\fromtodate{}{2015}{}{2019}}{
+      \begin{itemize}
+        \item Graduated first in year for experimental physics
+        \item Awarded Bloodworth Prize and Moreton Prize for academic excellence
+        \item Awarded Tessella Prize for most innovative use of software in Masters Y4 project
+      \end{itemize}
+    }\vspace{\intersegmentspacing}%
+  \experienceentry{A-Levels: Maths, Further Maths, Physics, Computing}
+    {4 A*s, Hereford Sixth Form College}
+    {\fromtodate{}{2013}{}{2015}}{
+  }%
+}\\[\intersectionspacing]
 
-%  {\institute CERN} \dash
-%  { \qualification Summer Studentship}\\
-%  {\stdate {\dateword JUNE - AUGUST} 2018}\\
-%  {\info Developing a monitoring system for AMC13 modules in the CMS detector}\\
-%  {\info \url{http://cdlib.cern.ch/record/2640969}}\\[\intersegmentspacing]
-%
-  \vspace{\intersectionspacing}
+%TECHNICAL SKILLS
+\lefttitleblock{bg1}{TECHNICAL SKILLS}{%
+  \fontfamily{phv}%
+    \fontseries{m}\fontshape{n}\bodysize\selectfont%
+    \hfill{\color{hl}Experience:}
+    \begin{itemize}
+      \setlength\itemsep{.2em}
+      \item Programming languages: \cpp, Python, JavaScript, SQL, Bash
+        \hfill{\fontshape{sl}\selectfont 11 years}
+      \item Software engineering: designed and used many large software frameworks
+        \hfill{\fontshape{sl}\selectfont 6 years}
+      \item Version control software: Git (GitHub, GitLab), SVN
+        \hfill{\fontshape{sl}\selectfont 8 years}
+      \item GNU/Linux systems: personal computers, remote servers
+        \hfill{\fontshape{sl}\selectfont 8 years}
+      \item Data science: statistical analysis, machine learning, data
+        engineering
+        \hfill{\fontshape{sl}\selectfont 5 years}
+      \item Data visualisation, particularly Python Matplotlib
+        \hfill{\fontshape{sl}\selectfont 5 years}
+      \item Document typesetting, particularly \LaTeX
+        \hfill{\fontshape{sl}\selectfont 9 years}
+      \item General IT skills: office suite programs, computer hardware
+        \hfill{\fontshape{sl}\selectfont 15+ years}
+    \end{itemize}
+}%
 
-  % ===== EDUCATION =====
-  {\hone Education} \vspace{0.5em} \hrule \vspace{0.5em}
+\clearpage
+\vspace*{-.0em}
 
-  {\institute University of Birmingham}\\
-  {\stdate 2019 - 2023} \dash
-  { \qualification PhD Particle Physics}\\
-  {\info%
-    Searching for rare Standard Model interactions with the
-    ATLAS collaboration
-  }\\
-  {\info%
-    Statistical analysis, machine learning, programming in \cpp and Python
-  }\\[\intersegmentspacing]
+%TRANSFERABLE SKILLS
+\lefttitleblock{bg2}{TRANSFERABLE SKILLS}{%
+  \fontfamily{phv}%
+    \fontseries{m}\fontshape{n}\bodysize\selectfont%
+    \begin{itemize}
+      \setlength\itemsep{.2em}
+      %
+      \item Communication
+      \begin{itemize}
+        \item Presented research at national conferences and meetings including
+          \link{https://indico.stfc.ac.uk/event/324/contributions/3215/}{IOP
+          HEPP conference}
+        \item Delivered technical demonstrations to internal teams at Acturis on new
+          automation tools
+      \end{itemize}
+      %
+      \item Teamwork
+      \begin{itemize}
+        \item Deliver feature builds and product maintenance services within a
+          team of 8 people at Acturis
+        \item Worked in a team of 10 people to deliver a
+          \link{https://arxiv.org/abs/2305.19142}{world-leading physics result}
+        \item Collaborate proactively with team members, both offering support and
+          seeking input to overcome technical challenges
+      \end{itemize}
+      %
+      \item Customer relationship management
+      \begin{itemize}
+        \item Communicate regularly with clients to provide updates on ongoing
+          builds or defects, providing prompt fixes or timeline estimates
+        \item Lead fortnightly meetings with dedicated client to communicate
+          status of current projects and investigations
+      \end{itemize}
+      %
+      \item Organisation
+      \begin{itemize}
+        \item Manage time across many simultaneous projects to meet
+          resource allocation within team at Acturis
+        \item Schedule time to allow flexibility to react promptly to queries
+          but also block out time to progress projects
+      \end{itemize}
+      %
+      \item Project Management
+      \begin{itemize}
+        \item Planned and independently performed a
+          \link{\thesislink{150}}{2.5-year-long physics analysis}
+        \item Plan multi-month projects to implement new features requested by
+          Acturis clients
+      \end{itemize}
+      %
+      \item Self-motivated learner
+      \begin{itemize}
+        \item Attended postgraduate training courses on topics including
+          statistical analysis and machine learning methods
+        \item Actively enrol on any internal Acturis training sessions
+          applicable to my role to advance my technical knowledge
+      \end{itemize}
+      %
+      \item Problem solving
+      \begin{itemize}
+        \item Excellent academic record, achieving very high grades across a
+          range of assessments requiring advanced problem solving skills
+        \item Significant experience debugging software defects in research
+          and commercial contexts
+      \end{itemize}
+      %
+    \end{itemize}
+}\\[\intersectionspacing]%
 
-  {\institute University of Birmingham}\\
-  {\stdate 2015 - 2019} \dash
-  { \qualification%
-    MSci Physics with Particle Physics and Cosmology \\
-    Class I, Cum Laude
-  }\\
-  {\info Graduated first in year for experimental physics}\\
-  {\info Awarded Bloodworth Prize (Y3) and Moreton Prize (Y4) for academic excellence}
-  {\info and Tessella Prize for most innovative use of software in a Y4 project}
-  \\[\intersegmentspacing]
+%TRANSFERABLE SKILLS
+\lefttitleblock{bg1}{PROJECTS}{%
+  \fontfamily{phv}%
+    \fontseries{m}\fontshape{n}\bodysize\selectfont%
+    \begin{itemize}
+      \setlength\itemsep{.2em}
+      %
+      \item Acturis automation tools
+        \hfill{\color{hl}[Software]}
+      \begin{itemize}
+        \item Personally designed and built a collection of Python tools to automate
+          a range of testing, deployment, and debugging tasks
+        \item Received excellent feedback and uptake from colleagues, improving
+          efficiency across the team
+      \end{itemize}
+      %
+      \item Triboson VZ$\gamma$ analysis \seethesis{6}{150}
+        \hfill{\color{hl}[Research]}
+      \begin{itemize}
+        \item Independently performed physics analysis providing world-first
+          measurement of ultra-rare process
+      \end{itemize}
+      %
+      \item Electroweak analysis framework
+        \hfill{\color{hl}[Research/Software]}
+      \begin{itemize}
+        \item Used Python and \cpp to create a generic analysis framework,
+          allowing the user to specify complex data manipulation and analysis
+          through simple configuration files
+      \end{itemize}
+      %
+      \item VBS Z$\gamma$ analysis \seethesis{5}{127}
+        \hfill{\color{hl}[Research]}
+      \begin{itemize}
+        \item Contributed reconstruction studies and analysis of systematic
+          uncertainties
+      \end{itemize}
+      %
+      \item Trigger hardware visualiser \seethesis[Section]{3.2}{68}
+        \hfill{\color{hl}[Research/Software]}
+      \begin{itemize}
+        \item JavaScript web-app which displays energies read by an ATLAS
+          trigger module, visualising and recreating trigger algorithms used
+          to process these energies
+        \item Developed based on requirements provided by a colleague involved
+          in firmware debugging
+      \end{itemize}
+      %
+    \item Personal Website (\link{https://hazza4569.github.io/}{hazza4569.github.io})
+        \hfill{\color{hl}[Software]}
+      \begin{itemize}
+        \item Passion project to develop a modern interactive JavaScript
+          website with no
+          plugins, under construction
+      \end{itemize}
+      %
+      \item A selection of other software projects can be found on my
+        \link{https://github.com/Hazza4569/}{GitHub page}
+      %
+    \end{itemize}
+}\\[\intersectionspacing]%
 
-  {\institute Hereford Sixth Form College}\\
-  {\stdate 2013 - 2015} \dash
-  { \qualification A-Levels:
-  %{\grade
-  A*s in physics, maths, further maths, computing
-  }
-
-  \vspace{\intersectionspacing}
-
-  % ==== TECHNICAL SKILLS ======
-  {\hone Technical Skills} \vspace{0.5em} \hrule \vspace{0.5em}
-
-  % > PROGRAMMING
-  {\skill Software development}\\
-  % > Primary languages
-  {\info 10 years of experience and competent in multiple programming languages:}\\
-  {\boldplanguage \cpp}\dash
-  {\desc%
-    Daily use throughout PhD for data analysis and algorithm design, working
-    with large software frameworks. 9 years of experience.
-  }\\
-  {\boldplanguage Python}\dash
-  {\desc%
-    Developed internal tools to automate common processes at Acturis.
-    Used for scripting and data visualisation in PhD and for larger personal
-    projects. Taught to Y3 undergraduate students. 8 years of experience.
-  }\\
-  {\boldplanguage JavaScript {\dateword (HTML, CSS)}}\dash
-  {\desc%
-    Built monitoring and visualisation tools for use with detector hardware.
-    Some small personal web projects. 6 years of experience.
-  }\\
-  {\boldplanguage SQL}\dash
-  {\desc%
-    Used extensively in role at Acturis to maintain databases for client
-    information and product configuration. 8 months of experience.
-  }\\
-  % > Additional languages
-  {\info Some experience with many more languages, including}\\
-  {\planguage%
-    Bash, Ruby, Java, Go, Rust, Kotlin, Matlab, Maple, Julia, XSLT, XPath
-  }\\[\intersegmentspacing]
-
-  % > DATA ANALYSIS
-  {\skill Data analysis}\\
-  {\info Experienced with a number of analysis techniques:}\\
-  {\desc%
-    Analysis performed during the PhD required use and understanding of
-    \qualification
-    machine learning techniques, likelihood model building, maximum likelihood
-    estimation, treatment of systematic and statistical uncertainties,
-    hypothesis testing,
-    \desc
-    and more.
-    Received formal training in statistical methods during undergraduate degree
-    and in a postgraduate course.
-  }\\[\intersegmentspacing]
-
-  % > QUALITY ASSURANCE
-  {\skill Quality assurance}\\
-  {\info Always ensure the highest build quality through extensive testing:}\\
-  {\desc%
-    For each change built at Acturis, write detailed test packs ensuring new
-    and existing functionality works as expected. Either conduct testing
-    personally or coordinate with internal teams to ensure 100\% pass rate on
-    all tests. Built and shared tools to automate common testing processes.
-  }\\[\intersegmentspacing]
-
-  % > Misc
-  {\skill Miscellaneous}\\
-  {\desc Experienced with \hl{version-control software}, see a selection of projects on my
-    \href{https://github.com/Hazza4569}{\color{hl}\underline{GitHub page}}.
-    Adept in operation of \hl{unix-based systems} and \hl{Windows}, for both work and personal use.
-    Proficient in writing and typesetting of documents, particularly with
-    {\LaTeX} -- created the official University of Birmingham
-    \href{https://www.overleaf.com/edu/bham#templates}
-    {\color{hl}\underline{overleaf templates}}.
-  }\\
-
-  \vspace{-.2em}
-  \referenceonrequest
-
-\end{minipage}%
-\hfill
-%\vrule
-%\hfill
-\begin{minipage}[t]{0.339\textwidth}
-  \newcommand\interskillspacing{.3em}
-
-  %RIGHT COLUMN
-  % ===== Transferable skills =====
-  {\hone Transferable Skills} \vspace{0.5em} \hrule \vspace{0.5em}
-  {\skill Project management}\\
-  {\desc
-    Independently planned and performed a 2.5-year-long physics analysis.
-    Involved long-term planning and prioritisation of tasks to ensure that the analysis
-    was completed within the timeline of the PhD.
-  }\\[\interskillspacing]
-  {\skill Client Relations}\\
-  {\desc
-    Worked directly with multiple clients in role at Acturis to ensure builds
-    are delivered to requirements and defects are investigated and resolved
-    promptly. Product owner for one client, acting as first point of contact
-    for issues or requests.
-  }\\[\interskillspacing]
-  {\skill Teamwork and communication}\\
-  {\desc
-    Collaborated on many projects with colleagues within the University
-    and internationally. Worked on an analysis with a team of
-    $\sim$10 physicists to attain a world-leading result.
-    In the L1Calo operations team, took week-long 24/7 on-call shifts to
-    ensure continuous running of the ATLAS experiment.
-    Communicate frequently with internal teams at Acturis to delegate
-    tasks and ensure that projects are delivered on time and to high quality.
-  }\\[\interskillspacing]
-  {\skill Time management}\\
-  {\desc
-    Worked on multiple concurrent projects during the PhD and learned to
-    effectively split time between tasks, whilst also scheduling individual work
-    time around meetings and other commitments. Have applied this experience to
-    manage many simultaneous projects at Acturis.
-  }\\[\interskillspacing]
-  {\skill Leadership}\\
-  {\desc
-    As an undergraduate, led 14 students for a 3-month project, producing a
-    90-page document on design of high-energy particle detectors.
-    Responsibilities included dividing and delegating tasks amongst small teams,
-    setting deadlines, and organising and chairing regular meetings.
-  }\\[\interskillspacing]
-  {\skill Problem solving} \\
-  {\desc
-    Demonstrated through research in deriving solutions to mathematical problems, implementing
-    code to analyse very large datasets or simulate systems, and optimising
-    an analysis to best extract a result from data.
-  }\\
-  \vspace{0.5em}
-
-  % ==== PERSONAL INTERESTS ======
-  {\hone Personal Interests} \vspace{0.5em} \hrule \vspace{0.5em}
-  {\desc%
-    Enjoy playing tennis and 5-a-side football.  Founder and first president of
-    the University of Birmingham Benchball Society.  Enjoy working with
-    computers, having built a custom PC for work, gaming, and more.
-  }
-
-\end{minipage}
-
-%\vspace{1.2em}
-%\hrule
+%TRANSFERABLE SKILLS
+\lefttitleblock{bg2}{INTERESTS}{%
+  \fontfamily{phv}%
+    \fontseries{m}\fontshape{n}\bodysize\selectfont%
+    Hobbies include playing sport, such as tennis and 5-a-side football; watching football,
+    as an avid Luton Town supporter and fantasy premier league manager; watching
+    international rugby, supporting Scotland in the six nations and autumn
+    internationals; cooking, particularly Italian and Indian food; coffee,
+    brewing espresso-based drinks at home; wine, craft beer, and real ales; and writing code
+    or tinkering with computers for personal projects.
+    %5-a-side football
+    %Tennis
+    %Craft beer
+    %coffee
+    %wine
+    %computers and tinkering
+}%
 
 \end{document}

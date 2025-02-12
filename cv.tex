@@ -3,7 +3,7 @@
 \usepackage[margin=.9cm,tmargin=1.2cm]{geometry}
 \usepackage[none]{hyphenat}
 \usepackage[hidelinks]{hyperref}
-\usepackage{lipsum,xcolor,relsize,xspace,enumitem,graphicx,fancyhdr,ulem}
+\usepackage{lipsum,xcolor,relsize,xspace,enumitem,graphicx,fancyhdr,ulem,lastpage}
 
 \setlist[itemize]{noitemsep,topsep=0pt,leftmargin=15pt}
 \setlist[itemize,2]{leftmargin=10pt}
@@ -14,7 +14,8 @@
 %\colorlet{hl}{black!70}
 \definecolor{hl}{HTML}{800020}
 \definecolor{bg1}{HTML}{FFFFFF}
-\definecolor{bg2}{HTML}{FFEBF0}
+\definecolor{bg2}{HTML}{FFF0F5}
+%\definecolor{bg2}{HTML}{FFEBF0}
 \newcommand\bodysize{\fontsize{11}{13}}
 \newcommand\htwosize{\fontsize{12}{15}}
 \newcommand\link[2]{{\color{hl}\uline{\href{#1}{#2}}}}
@@ -62,7 +63,7 @@
     \end{minipage}%
   }
 }
-\newcommand\thesislink[1]{https://raw.githubusercontent.com/Hazza4569/thesis/refs/heads/master/thesis.pdf\#page=#1}
+\newcommand\thesislink[1]{https://raw.githubusercontent.com/hacooke/thesis/refs/heads/master/thesis.pdf\#page=#1}
 \newcommand\seethesis[3][Chapter]{(see \link{\thesislink{#3}}{thesis}, #1 #2)}
 
 \newcommand\cvtitle{HARRY COOKE\xspace}
@@ -72,7 +73,9 @@
 \fancypagestyle{pageone}
 {
   \fancyhf{}
-  \fancyfoot[R]{\vspace{-3.3em}\fontfamily{phv}\fontshape{sl}\fontsize{9}{11}\selectfont Page \thepage}
+  \fancyfoot[R]{\vspace{-3.3em}\fontfamily{phv}\fontshape{sl}\fontsize{9}{11}\selectfont
+    Page {\thepage} of 2
+  }
   \renewcommand{\headrulewidth}{0pt} % removes horizontal header line
 }
 \fancypagestyle{pageother}
@@ -86,7 +89,9 @@
     \vspace{2.5em}\fontfamily{phv}\fontseries{n}\fontsize{11}{14}\selectfont%\color{hl}
     \cvsubtitle
   }
-  \fancyfoot[R]{\vspace{-3.3em}\fontfamily{phv}\fontshape{sl}\fontsize{9}{11}\selectfont Page \thepage}
+  \fancyfoot[R]{\vspace{-3.3em}\fontfamily{phv}\fontshape{sl}\fontsize{9}{11}\selectfont
+    Page {\thepage} of 2
+  }
   \renewcommand{\headrulewidth}{0pt} % removes horizontal header line
 }
 
@@ -112,7 +117,7 @@
       %\vspace{-.3em}
       hcooke006@aol.com \\[0.1em]
       +44 7528 694569 \\[0.1em]
-      \href{https://github.com/Hazza4569}{github.com/Hazza4569}
+      \href{https://github.com/hacooke}{github.com/hacooke}
   \end{minipage}
 \end{minipage}
 
@@ -126,14 +131,13 @@
     Enthusiastic about designing, building, and improving software that changes
     the way people work. 
     % What I've done/achieved
-    Attained a PhD in particle physics by developing software to
-    manipulate and analyse large data sets
-    and to simulate physical systems to advise on detector design.
-    Currently applying this experience to design software solutions for clients in
-    the insurance industry as a Technical Business Analyst.
+    Earned a PhD in particle physics, developing software to manipulate and
+    analyse large data sets and to perform simulations of physical systems.
+    Currently applying this experience to design software solutions for clients
+    in the insurance industry as a Technical Business Analyst.
     % What I'm looking to build on moving forward
-    Looking to learn and grow in a role utilising existing software and research
-    expertise whilst further expanding this skill set.
+    Looking to learn and grow in a role utilising existing software, research,
+    and data expertise whilst further expanding this skill set.
 }\\[\intersectionspacing]
 
 % EXPERIENCE
@@ -142,7 +146,7 @@
     {\fromtodate{May }{2024}{Present}{}}{
       \begin{itemize}
         \item Working within a team to build and maintain e-trade insurance
-          products for insurers and MGAs
+          products for insurers and brokers
         \begin{itemize}
           \item Convert complex build requirements into technical specifications
           \item Leverage continuous integration, unit testing, and acceptance
@@ -164,13 +168,13 @@
     Birmingham \& CERN, Geneva}
     {\fromtodate{}{2019}{}{2024}}{
       \begin{itemize}
-        \item Produced 2 cutting-edge physics analyses within the ATLAS
+        \item Produced two cutting-edge physics analyses within the ATLAS
           collaboration, one in a team and one independently
         \begin{itemize}
           \item Developed bespoke software in \cpp and Python to process and
             analyse high-volume physics data
-          \item Leveraged machine-learning discriminants and complex likelihood
-            models produce statistically significant results
+          \item Applied machine-learning discriminants and complex likelihood
+            models to optimise statistical significance of results
         \end{itemize}
         \item Worked on software and hardware upgrades to the ATLAS detector trigger system
           \begin{itemize}
@@ -178,7 +182,7 @@
             \item Assisted with installation of new trigger hardware
           \end{itemize}
         \item Taught Python to 3rd-year undergraduate students in computing labs
-          for 3 years
+          for three years
       \end{itemize}%
     }%
 }\\[\intersectionspacing]
@@ -198,7 +202,7 @@
       \begin{itemize}
         \item Graduated first in year for experimental physics
         \item Awarded Bloodworth Prize and Moreton Prize for academic excellence
-        \item Awarded Tessella Prize for most innovative use of software in Masters Y4 project
+        \item Awarded Tessella Prize for most innovative use of software in a Masters project
       \end{itemize}
     }\vspace{\intersegmentspacing}%
   \experienceentry{A-Levels: Maths, Further Maths, Physics, Computing}
@@ -256,8 +260,8 @@
       \item Teamwork
       \begin{itemize}
         \item Deliver feature builds and product maintenance services within a
-          team of 8 people at Acturis
-        \item Worked in a team of 10 people to deliver a
+          team of eight people at Acturis
+        \item Worked in a team of ten people to deliver a
           \link{https://arxiv.org/abs/2305.19142}{world-leading physics result}
         \item Collaborate proactively with team members, both offering support and
           seeking input to overcome technical challenges
@@ -289,10 +293,10 @@
       %
       \item Self-motivated learner
       \begin{itemize}
-        \item Attended postgraduate training courses on topics including
+        \item Attended postgraduate training courses, including
           statistical analysis and machine learning methods
-        \item Actively enrol on any internal Acturis training sessions
-          applicable to my role to advance my technical knowledge
+        \item Attended training sessions at Acturis, including
+          on client communications, version control software, and project management
       \end{itemize}
       %
       \item Problem solving
@@ -354,7 +358,7 @@
           in firmware debugging
       \end{itemize}
       %
-    \item Personal Website (\link{https://hazza4569.github.io/}{hazza4569.github.io})
+    \item Personal Website (\link{https://hacooke.github.io/}{hacooke.github.io})
         \hfill{\color{hl}[Software]}
       \begin{itemize}
         \item Passion project to develop a modern interactive JavaScript
@@ -363,7 +367,7 @@
       \end{itemize}
       %
       \item A selection of other software projects can be found on my
-        \link{https://github.com/Hazza4569/}{GitHub page}
+        \link{https://github.com/hacooke/}{GitHub page}
       %
     \end{itemize}
 }\\[\intersectionspacing]%
@@ -373,10 +377,10 @@
   \fontfamily{phv}%
     \fontseries{m}\fontshape{n}\bodysize\selectfont%
     Hobbies include playing sport, such as tennis and 5-a-side football; watching football,
-    as an avid Luton Town supporter and fantasy premier league manager; watching
+    as an avid Luton Town supporter and Fantasy Premier League manager; watching
     international rugby, supporting Scotland in the six nations and autumn
     internationals; cooking, particularly Italian and Indian food; coffee,
-    brewing espresso-based drinks at home; wine, craft beer, and real ales; and writing code
+    brewing espresso-based drinks at home; and writing code
     or tinkering with computers for personal projects.
     %5-a-side football
     %Tennis
